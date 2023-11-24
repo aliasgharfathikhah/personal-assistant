@@ -8,5 +8,5 @@ def home(request):
 
 @csrf_exempt
 def run_script(request):
-    Alex.run()
-    return HttpResponse('اسکریپت با موفقیت اجرا شد.')
+    p = Alex.run()
+    return HttpResponse(p)
