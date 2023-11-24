@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <form action="{% url 'run_script' %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="run">
-    </form>
+    <button>
+        <form action="{% url 'run_script' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="run">
+        </form>
+    </button>
 </body>
 </html>

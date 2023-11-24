@@ -1,3 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from utils import Alex
 
-# Create your views here.
+def home(request):
+    return render(request, 'pages/index.html')
+
+@csrf_exempt
+def run_script(request):
+    Alex.run()
+    return HttpResponse('اسکریپت با موفقیت اجرا شد.')
