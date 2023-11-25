@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font: icon;
+            color: white;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            /* background-color: #1e1d1d; */
+            padding: 10px 0;
+            color: white;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+            border-radius: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+
 <body>
-    <button>
-        <form action="{% url 'run_script' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" value="run">
-        </form>
-    </button>
+    <div class="navbar">This is Alex, ask him to do something</div>
+    
+    <form action="{% url 'run_script' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Run">
+    </form>
+
 </body>
+
 </html>
