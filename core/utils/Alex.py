@@ -43,10 +43,28 @@ def run():
         cap.release()
         cv2.destroyAllWindows()
 
+    def search():
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            play_sound('What should I search?')
+            audio = r.listen(source)
+            try:
+                text = r.recognize_google(audio, language='fa-IR')
+                play_sound(f'You said : {text}')
+            except:
+                play_sound('Sorry could not recognize your voice')
+        
+        driver = webdriver.Firefox()
+        driver.get('https://www.google.com')
+        input_ = driver.find_element(By.NAME,'q')
+        input_.send_keys(text)
+        input_.send_keys(Keys.ENTER)
+        
     r = sr.Recognizer()
     how_are_you = ['hello','Hello']
     open_google1 = ['Google',]
     taking_selfie1 = ['selfie','Selfie', 'photo', 'Photo']
+    serch1 = ['search',]
     with sr.Microphone() as source:
         try:
             sound()
@@ -64,7 +82,9 @@ def run():
                 elif word in taking_selfie1:
                     taking_selfie()
                     break
+                elif word in serch1:
+                    search()
         except:
             pass                    
-    return text2
+    # return text2
     
