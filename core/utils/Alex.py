@@ -59,12 +59,22 @@ def run():
         input_ = driver.find_element(By.NAME,'q')
         input_.send_keys(text)
         input_.send_keys(Keys.ENTER)
-        
+    
+    def testI():
+        speed = speedtest.Speedtest()
+        download_speed = speed.download()
+        winsound.PlaySound('d.wav', winsound.SND_FILENAME)
+        print(f'{round(download_speed/1_000_000, 2)} Mbps')
+        upload_speed = speed.upload()
+        winsound.PlaySound('u.wav', winsound.SND_FILENAME)
+        print(f'{round(upload_speed/1_000_000, 2)} Mbps')
+
     r = sr.Recognizer()
     how_are_you = ['hello','Hello']
     open_google1 = ['Google',]
     taking_selfie1 = ['selfie','Selfie', 'photo', 'Photo']
     serch1 = ['search',]
+    testI1 = ['Internet','speed']
     with sr.Microphone() as source:
         try:
             sound()
@@ -84,6 +94,10 @@ def run():
                     break
                 elif word in serch1:
                     search()
+                    break
+                elif word in testI1:
+                    testI()
+                    break
         except:
             pass                    
     # return text2
