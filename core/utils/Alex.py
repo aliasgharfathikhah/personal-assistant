@@ -1,6 +1,5 @@
 import speech_recognition as sr
 import winsound
-import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -100,5 +99,5 @@ def run():
                     break
         except:
             pass                    
-    # return text2
+
     
